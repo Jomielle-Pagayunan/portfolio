@@ -1,0 +1,160 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Portfolio',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 5,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Flutter Portfolio'),
+          bottom: TabBar(
+            tabs: [
+              Tab(icon: Icon(Icons.person), text: 'Personal'),
+              Tab(icon: Icon(Icons.school), text: 'Education'),
+              Tab(icon: Icon(Icons.star), text: 'Skills'),
+              Tab(icon: Icon(Icons.explore), text: 'Interests'),
+              Tab(icon: Icon(Icons.contact_mail), text: 'Contact'),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            // Personal Information Tab
+            Container(
+              padding: EdgeInsets.all(16.0),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage('https://drive.google.com/file/d/1Is4Qd1G0wI5DzKZQwdCVRQAUeaiHIlPW/view?usp=drive_link'),
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      'Jomielle N. Pagayunan',
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, ),
+                    ),
+                    Text(
+                      '21',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    Text(
+                      ' Have a keen eye for detail and a passion for visual art, Jomielle excels in creating intricate drawings that bring ideas to life',
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            // Educational Background Tab
+            Container(
+              padding: EdgeInsets.all(16.0),
+              child: ListView(
+                children: [
+                  ListTile(
+                    title: Text('Elementary'),
+                    subtitle: Text('Malitam Elementary Scool\nYear Graduated: 2014'),
+                  ),
+                   ListTile(
+                    title: Text('Secondary'),
+                    subtitle: Text('Tinga Sorosoro Integrated School\nYears Attended: 2021'),
+                  ),
+                   ListTile(
+                    title: Text('Tertiary'),
+                    subtitle: Text('Batangas State University - TNEU\nYears Attended:N/A'),
+                  ),
+                  // Add more ListTiles for each education entry
+                ],
+              ),
+            ),
+
+            // Skills Tab
+            Container(
+              padding: EdgeInsets.all(16.0),
+              child: ListView(
+                children: [
+                  ListTile(
+                    title: Text('Drawing'),
+                    subtitle: Text('Skilled in various artistic techniques, including sketching, shading, and digital illustration. Capable of creating detailed and expressive artworks that convey complex concepts and ideas effectively.'),
+                  ),
+                  ListTile(
+                    title: Text('Crafting'),
+                    subtitle: Text('Proficient in a range of crafting techniques such as paper crafting, model making, and DIY projects. Able to design and construct intricate handmade items with attention to detail and creativity.'),
+                  ),
+                  ListTile(
+                    title: Text('Music'),
+                    subtitle: Text('Experienced in playing musical instruments, composing, and performing. Possesses a deep understanding of music theory and a talent for creating harmonious and captivating musical pieces.'),
+                  ),
+                  // Add more ListTiles for each skill
+                ],
+              ),
+            ),
+
+            // Interests Tab
+            Container(
+              padding: EdgeInsets.all(16.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Professional Interests',
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    Text('Music Therapy'),
+                    Text('The Role of Music in Enhancing Cognitive Function/n Published in the Journal of Music Psychology.'),
+                    Text('Digital Art and Technology:'),
+                    Text('Notable Projects or Publications'),
+                  ],
+                ),
+              ),
+            ),
+
+            // Contact Details Tab
+            Container(
+              padding: EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ListTile(
+                    leading: Icon(Icons.email),
+                    title: Text('Email: 21-043522g.batstate-u.edu.ph'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.phone),
+                    title: Text('Phone Number: 09452159344'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.link),
+                    title: Text('Facebook: Jomielle Pagayunan/https://www.facebook.com/SimplyXynon'),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
